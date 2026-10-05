@@ -1,0 +1,21 @@
+May  1 09:55:01 web-01 systemd[1]: Started Daily apt download activities.
+May  1 09:56:12 web-01 CRON[2201]: pam_unix(cron:session): session opened for user root by (uid=0)
+May  1 09:57:03 web-01 sshd[4471]: Accepted publickey for deploy from 10.0.0.9 port 51522 ssh2
+May  1 09:58:44 web-01 kernel: [88213.114] TCP: request_sock_TCP: Possible SYN flooding on port 443.
+May  1 09:59:10 web-01 sshd[4490]: Failed password for invalid user admin from 203.0.113.77 port 40122 ssh2
+May  1 09:59:11 web-01 sshd[4491]: Failed password for invalid user admin from 203.0.113.77 port 40124 ssh2
+May  1 09:59:12 web-01 sshd[4492]: Failed password for invalid user root from 203.0.113.77 port 40126 ssh2
+May  1 10:00:02 web-01 kernel: [88901.552] Out of memory: Kill process 2214 (java) score 903 or sacrifice child
+May  1 10:00:02 web-01 kernel: [88901.560] Killed process 2214 (java) total-vm:7340032kB, anon-rss:5122880kB
+May  1 10:00:04 web-01 systemd[1]: orders.service: Main process exited, code=killed, status=9/KILL
+May  1 10:00:05 web-01 systemd[1]: orders.service: Failed with result 'signal'.
+May  1 10:00:11 web-01 postgres[1980]: [12-1] ERROR:  canceling statement due to statement timeout
+May  1 10:00:11 web-01 postgres[1980]: [12-1] STATEMENT:  select * from orders where created_at > now() - interval '1 day'
+May  1 10:00:12 web-01 postgres[1980]: [12-2] FATAL:  password authentication failed for user "reporting"
+May  1 10:00:13 web-01 nginx[812]: 10.0.0.22 "GET /api/orders/991 HTTP/1.1" 502 512 "-" "Mozilla/5.0" upstream timed out
+May  1 10:00:14 web-01 nginx[812]: 10.0.0.23 "GET /api/orders/992 HTTP/1.1" 502 512 "-" "Mozilla/5.0" upstream timed out
+May  1 10:00:15 web-01 nginx[812]: 10.0.0.24 "GET /api/health HTTP/1.1" 200 15 "-" "kube-probe/1.29"
+May  1 10:00:16 web-01 systemd[1]: orders.service: Scheduled restart job, restart counter is at 4.
+May  1 10:00:18 web-01 kernel: [88988.002] EXT4-fs error (device sda1): unable to open /var/lib/orders/segment-000118: No such file or directory
+May  1 10:00:19 web-01 nginx[812]: 10.0.0.25 "GET /favicon.ico HTTP/1.1" 404 128 "-" "Mozilla/5.0"
+May  1 10:00:20 web-01 sshd[4510]: Accepted publickey for deploy from 10.0.0.9 port 51530 ssh2

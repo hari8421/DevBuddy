@@ -1,0 +1,23 @@
+{"timestamp":"2024-05-01T09:57:00.011Z","level":"info","msg":"checkout-api listening on :3001","logger":"boot","pid":4211}
+{"timestamp":"2024-05-01T09:57:00.420Z","level":"info","msg":"connected to database","logger":"db","durationMs":42}
+{"timestamp":"2024-05-01T09:57:01.004Z","level":"info","msg":"GET /api/cart 200","logger":"http","method":"GET","path":"/api/cart/:id","status":200,"durationMs":11}
+{"timestamp":"2024-05-01T09:57:01.220Z","level":"info","msg":"GET /api/cart 200","logger":"http","method":"GET","path":"/api/cart/:id","status":200,"durationMs":9}
+{"timestamp":"2024-05-01T09:57:01.802Z","level":"warn","msg":"deprecated field `couponCode` used by client v1","logger":"validation"}
+{"timestamp":"2024-05-01T09:57:02.114Z","level":"error","msg":"checkout failed: upstream payment timeout","logger":"payments","error":"Error: ETIMEDOUT payments.internal:8443\n    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1613:16)\n    at payments.capture (src/payments/client.ts:112:11)"}
+{"timestamp":"2024-05-01T09:57:02.115Z","level":"error","msg":"checkout failed: upstream payment timeout","logger":"payments","error":"Error: ETIMEDOUT payments.internal:8443\n    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1613:16)\n    at payments.capture (src/payments/client.ts:112:11)"}
+{"timestamp":"2024-05-01T09:57:02.310Z","level":"warn","msg":"retrying payment capture","logger":"payments","attempt":2}
+{"timestamp":"2024-05-01T09:57:02.480Z","level":"error","msg":"checkout failed: upstream payment timeout","logger":"payments","error":"Error: ETIMEDOUT payments.internal:8443\n    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1613:16)\n    at payments.capture (src/payments/client.ts:112:11)"}
+{"timestamp":"2024-05-01T09:57:02.905Z","level":"info","msg":"POST /api/checkout 201","logger":"http","method":"POST","path":"/api/checkout","status":201,"durationMs":402}
+{"timestamp":"2024-05-01T09:57:03.114Z","level":"info","msg":"GET /api/cart 200","logger":"http","method":"GET","path":"/api/cart/:id","status":200,"durationMs":12}
+{"timestamp":"2024-05-01T09:57:03.560Z","level":"error","msg":"unhandled rejection in queue consumer","logger":"queue","error":"TypeError: Cannot read properties of undefined (reading 'total')\n    at priceSummary (src/checkout/summary.ts:41:23)\n    at async consume (src/checkout/queue.ts:88:5)"}
+{"timestamp":"2024-05-01T09:57:03.561Z","level":"error","msg":"unhandled rejection in queue consumer","logger":"queue","error":"TypeError: Cannot read properties of undefined (reading 'total')\n    at priceSummary (src/checkout/summary.ts:41:23)\n    at async consume (src/checkout/queue.ts:88:5)"}
+{"timestamp":"2024-05-01T09:57:04.001Z","level":"debug","msg":"cache lookup","logger":"cache","key":"cart:991","hit":false}
+{"timestamp":"2024-05-01T09:57:04.221Z","level":"debug","msg":"cache lookup","logger":"cache","key":"cart:992","hit":true}
+{"timestamp":"2024-05-01T09:57:04.900Z","level":"error","msg":"database query failed","logger":"db","error":"Error: SQLITE_BUSY: database is locked\n    at DatabaseWorker.queries (node:sqlite:318:22)\n    at CartRepository.load (src/db/cart.ts:37:18)"}
+{"timestamp":"2024-05-01T09:57:05.010Z","level":"info","msg":"GET /api/cart 200","logger":"http","method":"GET","path":"/api/cart/:id","status":200,"durationMs":14}
+{"timestamp":"2024-05-01T09:57:05.330Z","level":"warn","msg":"rate limit reached for client 10.0.0.19","logger":"ratelimit","status":429}
+{"timestamp":"2024-05-01T09:57:05.331Z","level":"warn","msg":"rate limit reached for client 10.0.0.19","logger":"ratelimit","status":429}
+{"timestamp":"2024-05-01T09:57:05.700Z","level":"info","msg":"POST /api/checkout 500","logger":"http","method":"POST","path":"/api/checkout","status":500,"durationMs":1180}
+{"timestamp":"2024-05-01T09:57:06.010Z","level":"info","msg":"GET /api/cart 200","logger":"http","method":"GET","path":"/api/cart/:id","status":200,"durationMs":10}
+{"timestamp":"2024-05-01T09:57:06.400Z","level":"error","msg":"out of memory: JavaScript heap out of memory","logger":"runtime","pid":4211}
+{"timestamp":"2024-05-01T09:57:06.410Z","level":"fatal","msg":"process exiting after unhandled heap exhaustion","logger":"runtime","pid":4211}

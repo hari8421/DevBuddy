@@ -1,0 +1,91 @@
+2024-05-01 10:00:00,001 INFO  [main] c.f.orders.Bootstrap - Starting orders-service v4.2.0
+2024-05-01 10:00:00,142 INFO  [main] c.f.orders.Bootstrap - Connected to postgres://orders-primary
+2024-05-01 10:00:00,318 INFO  [main] c.f.orders.Bootstrap - Connected to redis://cache-0:6379
+2024-05-01 10:00:00,455 INFO  [main] c.f.orders.HttpServer - Listening on 0.0.0.0:8080
+2024-05-01 10:00:01,010 INFO  [http-nio-8080-exec-1] c.f.orders.OrderController - GET /api/orders/1 -> 200 (12ms)
+2024-05-01 10:00:01,220 WARN  [http-nio-8080-exec-2] c.f.orders.PricingFacade - Falling back to legacy pricing for order 991
+2024-05-01 10:00:01,480 INFO  [http-nio-8080-exec-3] c.f.orders.OrderController - GET /api/orders/2 -> 200 (9ms)
+2024-05-01 10:00:02,530 ERROR [http-nio-8080-exec-1] c.f.orders.OrderService - Failed to process order
+java.lang.NullPointerException: order is null
+	at com.foo.orders.OrderService.process(OrderService.java:88)
+	at com.foo.orders.OrderController.submit(OrderController.java:41)
+	at com.foo.orders.OrderController.dispatch(AbstractController.java:19)
+2024-05-01 10:00:02,531 ERROR [http-nio-8080-exec-2] c.f.orders.OrderService - Failed to process order
+java.lang.NullPointerException: order is null
+	at com.foo.orders.OrderService.process(OrderService.java:88)
+	at com.foo.orders.OrderController.submit(OrderController.java:41)
+	at com.foo.orders.OrderController.dispatch(AbstractController.java:19)
+2024-05-01 10:00:02,540 ERROR [http-nio-8080-exec-3] c.f.orders.OrderService - Failed to process order
+java.lang.NullPointerException: order is null
+	at com.foo.orders.OrderService.process(OrderService.java:88)
+	at com.foo.orders.OrderController.submit(OrderController.java:41)
+	at com.foo.orders.OrderController.dispatch(AbstractController.java:19)
+2024-05-01 10:00:02,560 ERROR [http-nio-8080-exec-4] c.f.orders.OrderService - Failed to process order
+java.lang.NullPointerException: order is null
+	at com.foo.orders.OrderService.process(OrderService.java:88)
+	at com.foo.orders.OrderController.submit(OrderController.java:41)
+	at com.foo.orders.OrderController.dispatch(AbstractController.java:19)
+2024-05-01 10:00:03,012 WARN  [pool-2-thread-7] c.f.orders.PaymentClient - Retrying payment capture (attempt 2)
+2024-05-01 10:00:03,120 WARN  [pool-2-thread-7] c.f.orders.PaymentClient - Retrying payment capture (attempt 3)
+2024-05-01 10:00:03,240 ERROR [pool-2-thread-7] c.f.orders.PaymentClient - Payment capture failed
+java.net.SocketTimeoutException: Read timed out
+	at java.net.SocketInputStream.socketRead0(Native Method)
+	at java.net.SocketInputStream.read(SocketInputStream.java:150)
+	at com.foo.orders.PaymentClient.capture(PaymentClient.java:112)
+2024-05-01 10:00:03,900 ERROR [pool-2-thread-8] c.f.orders.PaymentClient - Payment capture failed
+java.net.SocketTimeoutException: Read timed out
+	at java.net.SocketInputStream.socketRead0(Native Method)
+	at java.net.SocketInputStream.read(SocketInputStream.java:150)
+	at com.foo.orders.PaymentClient.capture(PaymentClient.java:112)
+2024-05-01 10:00:04,010 INFO  [http-nio-8080-exec-5] c.f.orders.OrderController - GET /api/orders/3 -> 200 (11ms)
+2024-05-01 10:00:04,120 INFO  [http-nio-8080-exec-6] c.f.orders.OrderController - POST /api/orders -> 201 (188ms)
+2024-05-01 10:00:05,002 DEBUG [http-nio-8080-exec-6] c.f.orders.SqlRepository - SELECT * FROM orders WHERE id = ? (4ms)
+2024-05-01 10:00:05,140 DEBUG [http-nio-8080-exec-7] c.f.orders.SqlRepository - SELECT * FROM orders WHERE id = ? (3ms)
+2024-05-01 10:00:05,318 WARN  [http-nio-8080-exec-8] c.f.orders.CacheClient - Cache miss ratio above 0.6 for key prefix order:
+2024-05-01 10:00:05,900 ERROR [http-nio-8080-exec-9] c.f.orders.SqlRepository - Query failed
+org.springframework.dao.QueryTimeoutException: Statement cancelled due to timeout or client request
+	at com.zaxxer.hikari.pool.ProxyStatement.executeQuery(ProxyStatement.java:110)
+	at com.foo.orders.SqlRepository.findById(SqlRepository.java:57)
+2024-05-01 10:00:06,140 INFO  [http-nio-8080-exec-9] c.f.orders.OrderController - GET /api/orders/4 -> 200 (78ms)
+2024-05-01 10:00:06,420 WARN  [pool-2-thread-9] c.f.orders.PricingFacade - Falling back to legacy pricing for order 1873
+2024-05-01 10:00:06,880 WARN  [pool-2-thread-9] c.f.orders.PricingFacade - Falling back to legacy pricing for order 2210
+2024-05-01 10:00:07,010 ERROR [http-nio-8080-exec-10] c.f.orders.OrderService - Failed to process order
+java.lang.NullPointerException: order is null
+	at com.foo.orders.OrderService.process(OrderService.java:88)
+	at com.foo.orders.OrderController.submit(OrderController.java:41)
+2024-05-01 10:00:07,011 ERROR [http-nio-8080-exec-11] c.f.orders.OrderService - Failed to process order
+java.lang.NullPointerException: order is null
+	at com.foo.orders.OrderService.process(OrderService.java:88)
+	at com.foo.orders.OrderController.submit(OrderController.java:41)
+2024-05-01 10:00:07,300 ERROR [http-nio-8080-exec-12] c.f.orders.OrderService - Failed to process order
+java.lang.NullPointerException: order is null
+	at com.foo.orders.OrderService.process(OrderService.java:88)
+	at com.foo.orders.OrderController.submit(OrderController.java:41)
+2024-05-01 10:00:07,450 INFO  [http-nio-8080-exec-13] c.f.orders.OrderController - GET /api/health -> 200 (2ms)
+2024-05-01 10:00:07,900 ERROR [pool-2-thread-11] c.f.orders.PaymentClient - Payment capture failed
+java.net.SocketTimeoutException: Read timed out
+	at java.net.SocketInputStream.socketRead0(Native Method)
+	at com.foo.orders.PaymentClient.capture(PaymentClient.java:112)
+2024-05-01 10:00:08,120 WARN  [scheduler-1] c.f.orders.LegacyPricingJob - Legacy pricing endpoint is deprecated and will be removed
+2024-05-01 10:00:08,340 INFO  [http-nio-8080-exec-14] c.f.orders.OrderController - GET /api/orders/5 -> 200 (14ms)
+2024-05-01 10:00:08,900 ERROR [http-nio-8080-exec-15] c.f.orders.OrderService - Failed to process order
+java.lang.NullPointerException: order is null
+	at com.foo.orders.OrderService.process(OrderService.java:88)
+2024-05-01 10:00:09,010 ERROR [http-nio-8080-exec-16] c.f.orders.OrderService - Failed to process order
+java.lang.NullPointerException: order is null
+	at com.foo.orders.OrderService.process(OrderService.java:88)
+2024-05-01 10:00:09,220 WARN  [http-nio-8080-exec-17] c.f.orders.CacheClient - Evicting order:991 after serialization failure
+2024-05-01 10:00:09,640 INFO  [http-nio-8080-exec-18] c.f.orders.OrderController - GET /api/orders/6 -> 200 (10ms)
+2024-05-01 10:00:10,004 DEBUG [scheduler-2] c.f.orders.MetricsReporter - Flushing metrics: 1,204 orders, 248 errors
+2024-05-01 10:00:10,310 ERROR [http-nio-8080-exec-19] c.f.orders.OrderService - Failed to process order
+java.lang.NullPointerException: order is null
+	at com.foo.orders.OrderService.process(OrderService.java:88)
+2024-05-01 10:00:10,700 INFO  [http-nio-8080-exec-20] c.f.orders.OrderController - GET /api/orders/7 -> 200 (13ms)
+2024-05-01 10:00:11,050 WARN  [pool-2-thread-12] c.f.orders.PaymentClient - Retrying payment capture (attempt 2)
+2024-05-01 10:00:11,400 INFO  [http-nio-8080-exec-21] c.f.orders.OrderController - POST /api/orders -> 201 (201ms)
+2024-05-01 10:00:11,900 ERROR [http-nio-8080-exec-22] c.f.orders.SqlRepository - Query failed
+org.springframework.dao.QueryTimeoutException: Statement cancelled due to timeout or client request
+	at com.zaxxer.hikari.pool.ProxyStatement.executeQuery(ProxyStatement.java:110)
+	at com.foo.orders.SqlRepository.findById(SqlRepository.java:57)
+2024-05-01 10:00:12,100 INFO  [http-nio-8080-exec-22] c.f.orders.OrderController - GET /api/orders/8 -> 200 (65ms)
+2024-05-01 10:00:12,400 INFO  [main] c.f.orders.Bootstrap - Graceful shutdown complete
